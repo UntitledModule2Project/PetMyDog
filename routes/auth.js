@@ -76,6 +76,4 @@ authRoutes.get("/main", (req, res, next) => {
 });
 
 
-
-
 module.exports = authRoutes;

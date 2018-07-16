@@ -8,7 +8,7 @@ const breedSchema = new Schema({
     createdAt: 'created_at',
     updatedAt: 'updated_at'
   }
-);
+});
 
 const Breed = mongoose.model("Breed", breedSchema);
 module.exports = Breed;
