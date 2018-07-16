@@ -61,7 +61,6 @@ hbs.registerHelper("ifUndefined", (value, options) => {
   }
 });
 
-
 // Enable authentication using session + passport
 app.use(
   session({
@@ -85,5 +84,8 @@ app.use("/", index);
 
 const authRoutes = require("./routes/auth");
 app.use("/auth", authRoutes);
+
+const dogsRoutes = require("./routes/dogs");
+app.use("/dog", dogsRoutes);
 
 module.exports = app;

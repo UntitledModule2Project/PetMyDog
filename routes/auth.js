@@ -2,6 +2,7 @@ const express = require("express");
 const passport = require("passport");
 const authRoutes = express.Router();
 const User = require("../models/User");
+const Dog = require("../models/Dog");
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
@@ -16,7 +17,7 @@ authRoutes.post(
   passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/auth/login",
-    badRequestMessage: 'la cagaste',
+    badRequestMessage: "la cagaste",
     failureFlash: true,
     passReqToCallback: true
   })
@@ -49,7 +50,7 @@ authRoutes.post("/signup", (req, res, next) => {
     const newUser = new User({
       username,
       password: hashPass,
-      email,
+      email
     });
 
     newUser.save(err => {
@@ -67,15 +68,10 @@ authRoutes.get("/logout", (req, res) => {
   res.redirect("/");
 });
 
-authRoutes.get("/dogSignup", (req, res, next) => {
-  res.render("auth/dogSignup");
-});
-
 authRoutes.get("/main", (req, res, next) => {
-  res.render("main/main");
+  Dog.find().then(dogs => {
+    res.render("main/main", { dogs: JSON.stringify(dogs) });
+  });
 });
-
-
-
 
 module.exports = authRoutes;

@@ -13,16 +13,15 @@
       <a href="/">Home</a>
     </li>
     <li>
-      <a href="/auth/dogSignup">Sign your dog Up</a>
+      <a href="/dog/new">Sign your dog Up</a>
     </li>
     <li>
       <a href="/auth/logout">Log Out</a>
     </li>
-        <li>
+    <li>
       <a href="/auth/main">Find a Dog!</a>
     </li>
-    {{/if}} 
-    {{#unless user}}
+    {{/if}} {{#unless user}}
     <li>
       <a href="/auth/signup">Sign Up</a>
     </li>
@@ -33,7 +32,6 @@
   </ul>
 
   {{{body}}}
-
   <script src='/javascripts/script.js'></script>
 </body>
 
