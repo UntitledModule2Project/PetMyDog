@@ -16,6 +16,7 @@ authRoutes.post(
   passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/auth/login",
+    badRequestMessage: 'la cagaste',
     failureFlash: true,
     passReqToCallback: true
   })
@@ -29,7 +30,6 @@ authRoutes.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
   const email = req.body.email;
-  const rol = req.body.role;
   if (username === "" || password === "" || email === "") {
     res.render("auth/signup", {
       message: "Indicate username, password and email"
@@ -50,7 +50,6 @@ authRoutes.post("/signup", (req, res, next) => {
       username,
       password: hashPass,
       email,
-      role: "teacher"
     });
 
     newUser.save(err => {
@@ -67,5 +66,16 @@ authRoutes.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
 });
+
+authRoutes.get("/dogSignup", (req, res, next) => {
+  res.render("auth/dogSignup");
+});
+
+authRoutes.get("/main", (req, res, next) => {
+  res.render("main/main");
+});
+
+
+
 
 module.exports = authRoutes;

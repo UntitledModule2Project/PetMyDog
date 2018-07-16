@@ -1,0 +1,88 @@
+<h2>Sign your Dog up!</h2>
+
+<form action="/auth/dogSignup" method="POST" id="form">
+    <label for="name">Name</label>
+    <input id="name" type="text" name="name" placeholder="Thor">
+    <br>
+    <br>
+    <label for="age">Age</label>
+    <input id="age" type="number" name="age" placeholder="Your dog's age">
+    <br>
+    <br>
+    <label for="Photo">Photo</label>
+    <input id="Photo" type="Photo" name="Photo" placeholder="Your Photo">
+    <br>
+    <br>
+    <label for="breed">Your dog's breed</label>
+    <select name="breed" id="breed">
+        <option value="German Shepherd">German Shepherd</option>
+        <option value="Labrador Retreiver">Labrador Retreiver</option>
+        <option value="Golden Retreiver">Golden Retreiver</option>
+        <option value="English Bulldog">English Bulldog</option>
+        <option value="French Bulldog">French Bulldog</option>
+        <option value="Beagle">Beagle</option>
+        <option value="Poodle">Poodle</option>
+        <option value="Chihuahua">Chihuahua</option>
+        <option value="Pug">Pug</option>
+        <option value="Rottweiler">Rottweiler</option>
+        <option value="Yorkie">Yorkie</option>
+        <option value="Husky / Alaskan Malamute">Husky / Alaskan Malamute</option>
+        <option value="Boxer">Boxer</option>
+        <option value="Mastiff">Mastiff</option>
+        <option value="Great Dane">Great Dane</option>
+        <option value="Daschund">Daschund</option>
+        <option value="Pitbull">Pitbull</option>
+        <option value="Doberman">Doberman</option>
+        <option value="Bichon Frisee">Bichon Frisee</option>
+        <option value="Shih Tzu">Shih Tzu</option>
+        <option value="Akita">Akita</option>
+        <option value="Shiba Inu">Shiba Inu</option>
+        <option value="Border Collie">Border Collie</option>
+        <option value="Chow Chow">Chow Chow</option>
+        <option value="Pomeranian">Pomeranian</option>
+        <option value="Greyhound">Greyhound</option>
+        <option value="Corgi">Corgi</option>
+        <option value="Saint Bernard">Saint Bernard</option>
+        <option value="Dalmatian">Dalmatian</option>
+        <option value="Bernese Mountain Dog">Bernese Mountain Dog</option>
+        <option value="Cocker Spaniel">Cocker Spaniel</option>
+        <option value="Pincher">Pincher</option>
+        <option value="Bassett Hound">Bassett Hound</option>
+        <option value="Shetland Terrier">Shetland Terrier</option>
+        <option value="Collie">Collie</option>
+        <option value="Collie">Other</option>
+        <option value="Mixed">Mixed</option>
+    </select>
+    <br>
+    <br>
+    <label for="owner">Owner</label>
+    <input id="owner" type="text" name="owner" placeholder="Pepe">
+    <br>
+    <br>
+    <label for="size">Your dog's size</label>
+    <select name="size" id="size">
+        <option value="toy ">Toy</option>
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+    </select>
+    <br>
+    <br>
+    <label for="description">Description</label>
+    <textarea name="description" id="description" cols="46" rows="5"></textarea>
+    <br>
+    <br>
+
+    <br> {{#if message }}
+    <div class="error-message">{{ message }}</div>
+    {{/if}}
+
+    <br>
+    <br>
+
+    <button>Sign your dog up</button>
+
+    <p class="account-message">
+        <a href="/">Home</a>
+    </p>
+</form>

@@ -3,7 +3,6 @@ const Schema   = mongoose.Schema;
 
 const breedSchema = new Schema({
     breed: String,
-    isMixed: {type: Boolean, default: "false"}
 }, {
   timestamps: {
     createdAt: 'created_at',
