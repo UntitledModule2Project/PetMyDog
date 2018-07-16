@@ -4,7 +4,8 @@ const Dog = require('../models/Dog');
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  res.render('index', {dogs:JSON.stringify(dogs)});
+  console.log(req.user)
+  res.render('index');
 });
 
 
