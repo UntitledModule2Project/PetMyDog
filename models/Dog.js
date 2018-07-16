@@ -3,7 +3,7 @@ const Schema   = mongoose.Schema;
 
 const dogSchema = new Schema({
   name: {type: String, required: true},
-  age: String,
+  age: Number,
   photo: String,
   owner: {type: String, required: true},
   breed: {type: String, required: true},
@@ -16,6 +16,11 @@ const dogSchema = new Schema({
     updatedAt: 'updated_at'
   }
 });
+
+dogSchema.index({
+  location: '2dsphere'
+});
+
 
 const Dog = mongoose.model('Dog', dogSchema);
 module.exports = Dog;
