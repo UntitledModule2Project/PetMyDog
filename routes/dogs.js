@@ -52,17 +52,27 @@ dogsRoutes.post("/new", upload.single('photo'), (req, res, next) => {
   .catch(err =>{
     req.flash("error", err.message)
     res.redirect("/dog/new")
-  }
-  );
+  });
  });
 });
 
 dogsRoutes.get("/list", (req, res, next) => {
   Dog.find()
-  .then(dogs => {
+  .then(dogs => {/* console.log(dogs) */
     res.render("dog/list", {dogs});
   });
  });
+
+ dogsRoutes.get('/delete/:id',(req,res) => {
+  Dog.findByIdAndRemove(req.params.id)
+  .then (() => {
+    res.redirect('/dog/list')
+  })
+  .catch(err =>{
+    req.flash("error", err.message)
+    res.redirect("/dog/list")
+  });
+});
 
 
 module.exports = dogsRoutes;
