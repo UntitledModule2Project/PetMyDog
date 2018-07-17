@@ -6,7 +6,7 @@ document.addEventListener(
       lng: -3.707412
     };
     const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 15,
+      zoom: 14,
       center: ironhackMDRZ
     });
 

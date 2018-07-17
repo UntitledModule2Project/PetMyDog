@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const mongoose = require("mongoose");
-const Dog = require("../models/Dog");
+const Dog = require("../../models/Dog");
 
 mongoose
   .connect(process.env.DBURL)
