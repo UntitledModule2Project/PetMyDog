@@ -12,7 +12,7 @@ mongoose
       {
         name: "Bob",
         age: 7,
-        photo: "./public/images/bob",
+        photo: "/images/bob.jpg",
         owner: "SaraV1988",
         breed: "Other",
         size: "Small",
@@ -25,7 +25,7 @@ mongoose
       {
         name: "Mia Wallace",
         age: 1,
-        photo: "./public/images/miawallace",
+        photo: "/images/dogplaying.jpg",
         owner: "Mateo1989",
         breed: "Rottweiler",
         size: "Large",
