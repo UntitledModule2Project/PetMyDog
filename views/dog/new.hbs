@@ -1,5 +1,4 @@
-<h2>Sign Your Dog Up!</h2>
-
+<h2>Sign your Dog up!</h2>
 <form action="/dog/new" method="POST" enctype="multipart/form-data" id="form">
     <label for="name">Name</label>
     <input id="name" type="text" name="name" placeholder="Thor">
@@ -72,16 +71,22 @@
     <textarea name="description" id="description" cols="46" rows="5"></textarea>
     <br>
     <br>
-
+    <p>Wher's your dog at?</p>
+    <label for="lat">Latitude</label>
+    <input type="text" name="lat" placeholder="Latitude" id="lat">
+    <br>
+    <br>
+    <label for="lng">Longitude</label>
+    <input type="text" name="lng" placeholder="Longitude" id="lng">
+    <br>
+    <br>
+    <div id="map2" style="height:250px"></div>
     <br> {{#if message }}
     <div class="error-message">{{ message }}</div>
     {{/if}}
-
     <br>
     <br>
-
-    <button>Sign your dog up!!</button>
-
+    <button>Sign your dog up</button>
     <p class="account-message">
         <a href="/">Home</a>
     </p>
