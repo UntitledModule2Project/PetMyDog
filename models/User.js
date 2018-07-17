@@ -6,8 +6,6 @@ const userSchema = new Schema({
   password: {type: String, required: true},
   email: String,
   hasDog: {type: Boolean, default: false},
-  isActive: {type: Boolean, default: true},
-  location: {type: {type: String}, coordinates: [Number]}
 }, {
   timestamps: {
     createdAt: 'created_at',

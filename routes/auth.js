@@ -3,6 +3,9 @@ const passport = require("passport");
 const authRoutes = express.Router();
 const User = require("../models/User");
 const Dog = require("../models/Dog");
+const multer = require("multer");
+const upload = multer({ dest: "uploads/users/" });
+
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");

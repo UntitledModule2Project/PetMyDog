@@ -1,6 +1,9 @@
 const express = require("express");
 const dogsRoutes = express.Router();
 const Dog = require("../models/Dog");
+const multer = require('multer');
+const upload = multer({ dest: "./public/uploads/" });
+
 
 dogsRoutes.get("/new", (req, res, next) => {
   res.render("dog/new");
