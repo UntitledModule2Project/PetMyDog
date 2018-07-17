@@ -1,6 +1,5 @@
-document.addEventListener(
-  "DOMContentLoaded",
-  () => {
+document.addEventListener("DOMContentLoaded",() => {
+  if(document.getElementById('map')) {
     const ironhackMDRZ = {
       lat: 40.4154514,
       lng: -3.707412
@@ -56,6 +55,8 @@ document.addEventListener(
       });
       map.setCenter(position);
     });
+  }
+
   },
   false
 );

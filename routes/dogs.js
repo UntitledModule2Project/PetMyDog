@@ -1,9 +1,8 @@
 const express = require("express");
 const dogsRoutes = express.Router();
 const Dog = require("../models/Dog");
-const multer = require('multer');
+const multer = require("multer");
 const upload = multer({ dest: "./public/uploads/" });
-
 
 dogsRoutes.get("/new", (req, res, next) => {
   res.render("dog/new");
@@ -50,4 +49,10 @@ dogsRoutes.post("/new", (req, res, next) => {
   });
 });
 
+dogsRoutes.get("/list", (req, res, next) => {
+  Dog.find().then(dogs => {
+    console.log(dogs)
+    res.render("dog/list", {dogs});
+  });
+});
 module.exports = dogsRoutes;

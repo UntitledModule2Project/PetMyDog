@@ -6,7 +6,6 @@ const Dog = require("../models/Dog");
 const multer = require("multer");
 const upload = multer({ dest: "uploads/users/" });
 
-
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
@@ -73,7 +72,7 @@ authRoutes.get("/logout", (req, res) => {
 
 authRoutes.get("/main", (req, res, next) => {
   Dog.find().then(dogs => {
-    res.render("main/main", { dogs: JSON.stringify(dogs) });
+    res.render("main/main", {dogs: JSON.stringify(dogs)});
   });
 });
 
