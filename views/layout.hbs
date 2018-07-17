@@ -14,13 +14,15 @@
         <a href="/">Home</a>
       </li>
       <li>
-        <a href="/dog/new">Sign your dog Up</a>
+        <a href="/dog/new">Sign your dog up!</a>
       </li>
       <li>
         <a href="/auth/logout">Log Out</a>
       </li>
       <li>
         <a href="/auth/main">Find a Dog!</a>
+      </li>
+      <a href="/dog/list">See all Dogs!</a>
       </li>
       {{/if}} {{#unless user}}
       <li>
@@ -37,6 +39,10 @@
   <footer>
     Designed with ♡ in Madrid      |||      <a href="https://github.com/UntitledModule2Project/PetMyDog">GitHub Repo</a>
   </footer>
+  </div>
+
+  {{{body}}}
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmknxLuNO4QWf43Tg5McsdhWCtiOuaCeA"></script>
   <script src='/javascripts/script.js'></script>
 </body>
 

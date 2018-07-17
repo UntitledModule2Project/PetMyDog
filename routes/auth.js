@@ -4,7 +4,6 @@ const authRoutes = express.Router();
 const User = require("../models/User");
 const Dog = require("../models/Dog");
 
-
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
@@ -71,7 +70,7 @@ authRoutes.get("/logout", (req, res) => {
 
 authRoutes.get("/main", (req, res, next) => {
   Dog.find().then(dogs => {
-    res.render("main/main", { dogs: JSON.stringify(dogs) });
+    res.render("main/main", {dogs: JSON.stringify(dogs)});
   });
 });
 

@@ -12,6 +12,7 @@ const path = require("path");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const flash = require("connect-flash");
+const hbsutils = require("hbs-utils")(hbs)
 
 mongoose.Promise = Promise;
 mongoose
@@ -49,7 +50,12 @@ app.use(
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/uploads",express.static(path.join(__dirname, "/uploads")));
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
+hbs.registerPartials(__dirname + '/views/partials')
+hbsutils.registerWatchedPartials(__dirname + '/views/partials');
+hbs.registerHelper('toJSON',obj=>JSON.stringify(obj, null, 3))
+
 
 hbs.registerHelper("ifUndefined", (value, options) => {
   if (arguments.length < 2)

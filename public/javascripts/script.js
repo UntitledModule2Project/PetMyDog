@@ -1,6 +1,26 @@
+const geolocate = () => {
+  return new Promise((resolve, reject) => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        function(position) {
+          const myPosition = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+          resolve(myPosition);
+        },
+        () => reject("Error in the geolocation service.")
+      );
+    } else {
+      reject("Browser does not support geolocation.");
+    }
+  });
+};
+
 document.addEventListener(
   "DOMContentLoaded",
   () => {
+<<<<<<< HEAD
     const ironhackMDRZ = {
       lat: 40.4154514,
       lng: -3.707412
@@ -18,44 +38,90 @@ document.addEventListener(
         },
         map: map,
         title: `${dog.name} - ${dog.breed}`
+=======
+    //MAIN MAP
+    if (document.getElementById("map")) {
+      const ironhackMDRZ = {
+        lat: 40.4154514,
+        lng: -3.707412
+      };
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 15,
+        center: ironhackMDRZ
+>>>>>>> abdede2fa93ce3325865f1efca01dcea5bb0e004
       });
-    });
 
-    const geolocate = () => {
-      return new Promise((resolve, reject) => {
-        // Try to get a geolocation object from the web browser
-        if (navigator.geolocation) {
-          // Get current position
-          // The permissions dialog will popup
-          navigator.geolocation.getCurrentPosition(
-            function(position) {
-              // Create an object to match
-              // google's Lat-Lng object format
-              console.log(position);
-              const myPosition = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-              };
-              console.log("myPosition: ", myPosition);
-              resolve(myPosition);
-            },
-            () => reject("Error in the geolocation service.")
-          ); // If something else goes wrong
-        } else {
-          reject("Browser does not support geolocation."); // Browser says: Nah! I do not support this.
+      window.dogs.forEach(dog => {
+        new google.maps.Marker({
+          position: {
+            lat: dog.location.coordinates[0],
+            lng: dog.location.coordinates[1]
+          },
+          map: map,
+          title: `${dog.name} -${dog.age}- ${dog.breed}`
+        });
+      });
+
+      geolocate().then(position => {
+        const myMarker = new google.maps.Marker({
+          position,
+          map: map,
+          title: "I'm here"
+        });
+        map.setCenter(position);
+      });
+    }
+
+    //SECOND MAP
+
+    if (document.getElementById("map2")) {
+      const map2 = new google.maps.Map(document.getElementById("map2"), {
+        zoom: 15
+      });
+      geolocate().then(position => {
+        const myMarker = new google.maps.Marker({
+          position,
+          map: map2,
+          title: "I'm here"
+        });
+        map2.setCenter(position);
+      });
+
+      let markers = [];
+
+      google.maps.event.addListener(map2, "click", event => {
+        clearMarkers();
+        fillFields(event);
+
+        const marker = new google.maps.Marker({
+          position: {
+            lat: event.latLng.lat(),
+            lng: event.latLng.lng()
+          },
+          map: map2,
+          draggable: true
+        });
+
+        google.maps.event.addListener(marker, "dragend", event => {
+          fillFields(event);
+        });
+
+        markers.push(marker);
+      });
+
+      const clearMarkers = () => {
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(null);
         }
-      });
-    };
+        markers = [];
+      };
 
-    geolocate().then(position => {
-      // User granted permission
-      const myMarker = new google.maps.Marker({
-        position,
-        map: map,
-        title: "I'm here"
-      });
-      map.setCenter(position);
-    });
+      const fillFields = event => {
+        document.getElementById("lat").value = event.latLng.lat();
+        document.getElementById("lng").value = event.latLng.lng();
+      };
+    }
   },
+
   false
 );
