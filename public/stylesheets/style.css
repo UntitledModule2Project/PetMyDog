@@ -1,19 +1,4 @@
-<<<<<<< HEAD
 @import url("https://fonts.googleapis.com/css?family=Fredericka+the+Great|Overlock:400,700");
-=======
-html {
-  position: relative;
-  min-height: 100vh; }
-
-#header {
-  background-color: #2081C3;
-  padding: 1.5em; }
-
-#header a {
-  margin: 0 20px;
-  color: #F7F9F9; }
-
->>>>>>> abdede2fa93ce3325865f1efca01dcea5bb0e004
 body {
   padding: 0;
   margin: 0;
@@ -93,29 +78,5 @@ body {
     width: 100%;
     padding: 2% 0;
     background-color: rgba(255, 255, 255, 0.3); }
-
-.dog-container img {
-  width: auto;
-  height: 100%; }
-
-.dog-container {
-  max-width: 1500px;
-  margin: 1em auto;
-  padding-bottom: 70px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between; }
-
-.dog-container article {
-  margin: 170px 0;
-  width: 30%; }
-
-.dog-container article > div {
-  height: 250px;
-  margin-bottom: 20px; }
-
-.dog-container article img {
-  display: block;
-  margin: auto; }
 
 /*# sourceMappingURL=style.css.map */
