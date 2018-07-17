@@ -7,31 +7,36 @@
 </head>
 
 <body>
-  <ul>
-    {{#if user}}
-    <li>
-      <a href="/">Home</a>
-    </li>
-    <li>
-      <a href="/dog/new">Sign your dog Up</a>
-    </li>
-    <li>
-      <a href="/auth/logout">Log Out</a>
-    </li>
-    <li>
-      <a href="/auth/main">Find a Dog!</a>
-    </li>
-    {{/if}} {{#unless user}}
-    <li>
-      <a href="/auth/signup">Sign Up</a>
-    </li>
-    <li>
-      <a href="/auth/login">Log In</a>
-    </li>
-    {{/unless}}
-  </ul>
+  <nav>
+    <ul>
+      {{#if user}}
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/dog/new">Sign your dog Up</a>
+      </li>
+      <li>
+        <a href="/auth/logout">Log Out</a>
+      </li>
+      <li>
+        <a href="/auth/main">Find a Dog!</a>
+      </li>
+      {{/if}} {{#unless user}}
+      <li>
+        <a href="/auth/signup">Sign Up</a>
+      </li>
+      <li>
+        <a href="/auth/login">Log In</a>
+      </li>
+      {{/unless}}
+    </ul>
+  </nav>
 
   {{{body}}}
+  <footer>
+    Designed with ♡ in Madrid      |||      <a href="https://github.com/UntitledModule2Project/PetMyDog">GitHub Repo</a>
+  </footer>
   <script src='/javascripts/script.js'></script>
 </body>
 

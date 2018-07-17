@@ -1,46 +1,82 @@
+@import url("https://fonts.googleapis.com/css?family=Fredericka+the+Great|Overlock:400,700");
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
-
-a {
-  color: #00B7FF; }
-
-#form {
-  margin: 30px auto;
-  width: 380px; }
-
-#form label {
-  color: #666;
-  display: inline-block;
-  margin-bottom: 10px;
-  text-align: center;
-  width: 100%; }
-
-#form input,
-#form button {
-  box-sizing: border-box;
-  font-size: 14px;
-  outline: 0;
-  padding: 4px;
-  width: 100%; }
-
-#form button {
-  background: #43a3e6;
-  border: 1px solid #43a3e6;
-  border-radius: 4px;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 14px;
-  padding: 8px 16px;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: .3s ease background;
-  width: 100%; }
-
-#form button:hover {
-  background: #fff;
-  color: #43a3e6;
-  transition: .3s ease background; }
+  padding: 0;
+  margin: 0;
+  font: 1.6em "Overlock", Verdana, serif;
+  max-height: 100%;
+  width: auto;
+  background-image: url("../images/happy-dog-running-by-500px.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat; }
+  body nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 0;
+    padding: 2% 0;
+    background-color: rgba(255, 255, 255, 0.3); }
+  body ul {
+    width: 100%;
+    padding: 0;
+    margin: 0; }
+  body ul > li {
+    display: inline-flex;
+    list-style-type: none;
+    flex-basis: content auto;
+    width: 24%;
+    justify-content: space-evenly; }
+  body a {
+    color: #00B7FF;
+    text-decoration: none; }
+  body h1 {
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+    font-family: "Fredericka The Great", sans-serif;
+    font-size: 3em; }
+  body #form {
+    margin: 30px auto;
+    width: 380px; }
+  body #form label {
+    color: #666;
+    display: inline-block;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 100%; }
+  body #form input,
+  body #form button {
+    box-sizing: border-box;
+    font-size: 14px;
+    outline: 0;
+    padding: 4px;
+    width: 100%; }
+  body #form button {
+    background: #43a3e6;
+    border: 1px solid #43a3e6;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    padding: 8px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .3s ease background;
+    width: 100%; }
+  body #form button:hover {
+    background: #fff;
+    color: #43a3e6;
+    transition: .3s ease background; }
+  body .title {
+    margin: 0 60% 0 30%; }
+  body footer {
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    font-family: "Fredericka The Great", Verdana, serif;
+    width: 100%;
+    padding: 2% 0;
+    background-color: rgba(255, 255, 255, 0.3); }
 
 /*# sourceMappingURL=style.css.map */
