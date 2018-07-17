@@ -6,7 +6,8 @@ const upload = multer({ dest: "uploads/" });
 
 
 dogsRoutes.get("/new", (req, res, next) => {
- res.render("dog/new");
+ res.render("dog/new", {message: req.flash("error")});
+
 });
 
 dogsRoutes.post("/new", upload.single('photo'), (req, res, next) => {
@@ -17,6 +18,7 @@ dogsRoutes.post("/new", upload.single('photo'), (req, res, next) => {
  const breed = req.body.breed;
  const size = req.body.size;
  const description = req.body.description;
+ const location = {type: 'Point', coordinates :[req.body.lat,req.body.lng]};
  if (
    name === "" ||
    age === "" ||
@@ -32,7 +34,7 @@ dogsRoutes.post("/new", upload.single('photo'), (req, res, next) => {
    return;
  }
 
- Dog.findOne({ name }, "name", (err, user) => {
+ Dog.findOne({ name }, "name", (err, user,next) => {
    const newDog = new Dog({
      name,
      age,
@@ -40,22 +42,24 @@ dogsRoutes.post("/new", upload.single('photo'), (req, res, next) => {
      owner,
      breed,
      size,
-     description
+     description,
+     location
    });
-     console.log(newDog)
-   newDog.save(err => {
-     if (err) {
-       console.log(err);
-       res.render("dog/new", { message: "Something went wrong" });
-     } else {
-       res.redirect("dog/list");
-     }
-   });
+   newDog.save()
+   .then(() => {
+    res.redirect("/dog/list");
+  })
+  .catch(err =>{
+    req.flash("error", err.message)
+    res.redirect("/dog/new")
+  }
+  );
  });
 });
 
 dogsRoutes.get("/list", (req, res, next) => {
-  Dog.find().then(dogs => {
+  Dog.find()
+  .then(dogs => {
     res.render("dog/list", {dogs});
   });
  });
