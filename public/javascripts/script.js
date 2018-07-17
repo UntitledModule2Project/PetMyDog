@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded",() => {
           lng: dog.location.coordinates[1]
         },
         map: map,
-        title: `${dog.name} - ${dog.breed}`
+        title: `${dog.name} -${dog.age}- ${dog.breed}`
       });
     });
 

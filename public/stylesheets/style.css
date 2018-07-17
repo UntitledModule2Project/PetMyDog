@@ -1,3 +1,15 @@
+html {
+  position: relative;
+  min-height: 100vh; }
+
+#header {
+  background-color: #2081C3;
+  padding: 1.5em; }
+
+#header a {
+  margin: 0 20px;
+  color: #F7F9F9; }
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
