@@ -32,13 +32,25 @@ document.addEventListener(
       });
 
       window.dogs.forEach(dog => {
-        new google.maps.Marker({
+        let contentString = `<h1  class="firstHeading">${dog.name}</h1>
+        <img src="/${dog.photo}">
+        <p>${dog.breed}</p>
+        <p>${dog.age} Years</p>
+        <a href="/dog/dogProfile/${dog._id}">See profile</a>`;
+
+        const infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+        let marker = new google.maps.Marker({
           position: {
             lat: dog.location.coordinates[0],
             lng: dog.location.coordinates[1]
           },
           map: map,
           title: `${dog.name} -${dog.age}- ${dog.breed}`
+        });
+        marker.addListener("click", function() {
+          infowindow.open(map, marker);
         });
       });
 
@@ -100,6 +112,23 @@ document.addEventListener(
         document.getElementById("lat").value = event.latLng.lat();
         document.getElementById("lng").value = event.latLng.lng();
       };
+    }
+    // MAP 3
+    if (document.getElementById("map3")) {
+      const map3 = new google.maps.Map(document.getElementById("map3"), {
+        zoom: 15
+      });
+      const dog = window.dog
+      const position = {
+        lat: dog.location.coordinates[0],
+        lng: dog.location.coordinates[1]
+      }
+      const dogMarker = new google.maps.Marker({
+        position: position,
+        map: map3,
+        title: "It's here"
+      });
+      map3.setCenter(position);
     }
   },
 

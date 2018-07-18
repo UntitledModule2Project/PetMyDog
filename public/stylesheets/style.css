@@ -26,7 +26,7 @@ body {
     list-style-type: none;
     flex-basis: content auto; }
   body a {
-    color: #00B7FF;
+    color: #00b7ff;
     text-decoration: none; }
   body h1 {
     display: flex;
@@ -61,12 +61,12 @@ body {
     padding: 8px 16px;
     text-decoration: none;
     text-transform: uppercase;
-    transition: .3s ease background;
+    transition: 0.3s ease background;
     width: 100%; }
   body #form button:hover {
     background: #fff;
     color: #43a3e6;
-    transition: .3s ease background; }
+    transition: 0.3s ease background; }
   body .title {
     margin: 0 60% 0 30%; }
   body footer {
@@ -77,5 +77,29 @@ body {
     width: 100%;
     padding: 2% 0;
     background-color: rgba(255, 255, 255, 0.3); }
+
+.dog-container img {
+  width: auto;
+  height: 100%; }
+
+.dog-container {
+  max-width: 1500px;
+  margin: 1em auto;
+  padding-bottom: 70px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+
+.dog-container article {
+  margin: 170px 0;
+  width: 30%; }
+
+.dog-container article > div {
+  height: 250px;
+  margin-bottom: 20px; }
+
+.dog-container article img {
+  display: block;
+  margin: auto; }
 
 /*# sourceMappingURL=style.css.map */

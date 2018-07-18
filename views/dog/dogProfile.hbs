@@ -6,10 +6,13 @@
             <p>Breed: {{dog.breed}}</p>
             <p>Age: {{dog.age}}</p>
             <p>Owner: {{dog.owner}}</p>
-            <p>Description: <br> {{dog.description}}</p>
-            <a href="/dog/delete/{{_id}}">Delete dog </a>
-            <a href="/dog/edit/{{_id}}">Edit dog </a>
-            <a href="/main/schedule/{{_id}}">Pet this dog </a>
+            <p>Description:
+                <br> {{dog.description}}</p>
+            {{#if user.isAdmin}}
+            <a href="/dog/delete/{{dog._id}}">Delete dog </a>
+            {{/if}}
+            <a href="/dog/edit/{{dog._id}}">Edit dog </a>
+            <a href="/dog/schedule/{{dog._id}}">Pet this dog </a>
         </div>
     </article>
 </div>

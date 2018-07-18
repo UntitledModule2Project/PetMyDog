@@ -3,6 +3,7 @@ const dogsRoutes = express.Router();
 const Dog = require("../models/Dog");
 const multer = require("multer");
 const upload = multer({ dest: "uploads/" });
+const isAdmin = require("../midlewares/isAdmin")
 
 dogsRoutes.get("/new", (req, res, next) => {
   res.render("dog/new", { message: req.flash("error") });
@@ -55,6 +56,7 @@ dogsRoutes.post("/new", upload.single("photo"), (req, res, next) => {
   });
 });
 
+//LIST
 dogsRoutes.get("/list", (req, res, next) => {
   Dog.find().then(dogs => {
     res.render("dog/list", { dogs });
@@ -105,10 +107,20 @@ dogsRoutes.get("/delete/:id", (req, res) => {
 
 //DOG PROFILE
 dogsRoutes.get("/dogProfile/:id", (req, res) => {
-  console.log(req.params)
   Dog.findById(req.params.id).then(dog => {
     res.render("dog/dogProfile", { dog });
   });
 });
+
+//SCHEDULE ROUTE
+dogsRoutes.get("/schedule/:id", (req, res) => {
+  Dog.findById(req.params.id).then(dog => {
+    console.log(dog)
+    res.render("dog/schedule", { dog : JSON.stringify(dog) });
+  });
+});
+
+
+
 
 module.exports = dogsRoutes;
