@@ -10,74 +10,101 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   color: white; }
-  body nav {
-    margin: 0;
-    padding: 2% 0;
-    background-color: rgba(255, 255, 255, 0.3); }
-  body ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    justify-content: space-evenly; }
-  body ul > li {
-    display: flex;
-    list-style-type: none;
-    flex-basis: content auto; }
-  body a {
-    color: #00b7ff;
-    text-decoration: none; }
-  body h1 {
-    display: flex;
-    justify-content: flex-start;
-    align-content: flex-start;
-    font-family: "Fredericka The Great", sans-serif;
-    font-size: 3em; }
-  body #form {
-    margin: 30px auto;
-    width: 380px; }
-  body #form label {
-    color: #666;
-    display: inline-block;
-    margin-bottom: 10px;
-    text-align: center;
-    width: 100%; }
-  body #form input,
-  body #form button {
-    box-sizing: border-box;
-    font-size: 14px;
-    outline: 0;
-    padding: 4px;
-    width: 100%; }
-  body #form button {
-    background: #43a3e6;
-    border: 1px solid #43a3e6;
-    border-radius: 4px;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 14px;
-    padding: 8px 16px;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: 0.3s ease background;
-    width: 100%; }
-  body #form button:hover {
-    background: #fff;
-    color: #43a3e6;
-    transition: 0.3s ease background; }
-  body .title {
-    margin: 0 60% 0 30%; }
-  body footer {
-    left: 0;
-    bottom: 0;
-    text-align: center;
-    font-family: "Fredericka The Great", Verdana, serif;
-    width: 100%;
-    padding: 2% 0;
-    background-color: rgba(255, 255, 255, 0.3); }
+
+main {
+  min-height: calc(100vh - 150px);
+  padding: 90px 50px 0 50px; }
+
+nav {
+  background-color: rgba(255, 255, 255, 0.3);
+  position: fixed;
+  width: 100%;
+  height: 80px; }
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.3);
+  font-family: "Fredericka The Great", Verdana, serif;
+  width: 100%;
+  height: 60px; }
+
+ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  justify-content: space-evenly;
+  align-content: space-around; }
+
+ul > li {
+  display: flex;
+  list-style-type: none; }
+
+a {
+  color: #00b7ff;
+  text-decoration: none;
+  font-weight: 900; }
+
+h1 {
+  display: flex;
+  justify-content: flex-start;
+  align-content: flex-start;
+  font-family: "Fredericka The Great", sans-serif;
+  font-size: 3em; }
+
+#form {
+  margin: 30px auto;
+  width: 380px;
+  font-size: 1.3em;
+  font-weight: 900; }
+
+#form label {
+  color: white;
+  display: inline-block;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 100%; }
+
+#form select {
+  display: inline-block;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 100%; }
+
+#form input,
+#form button {
+  box-sizing: border-box;
+  font-size: 14px;
+  outline: 0;
+  padding: 4px;
+  width: 100%; }
+
+#form button {
+  background: #43a3e6;
+  border: 1px solid #43a3e6;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  padding: 8px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.3s ease background;
+  width: 100%; }
+
+#form button:hover {
+  background: #fff;
+  color: #43a3e6;
+  transition: 0.3s ease background; }
+
+.title {
+  width: 980px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 50px; }
 
 .dog-container img {
   width: auto;
@@ -92,7 +119,7 @@ body {
   justify-content: space-between; }
 
 .dog-container article {
-  margin: 170px 0;
+  margin: 30px 0;
   width: 30%; }
 
 .dog-container article > div {
@@ -102,5 +129,8 @@ body {
 .dog-container article img {
   display: block;
   margin: auto; }
+
+.infoWindow {
+  color: black; }
 
 /*# sourceMappingURL=style.css.map */

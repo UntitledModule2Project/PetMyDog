@@ -32,11 +32,11 @@ document.addEventListener(
       });
 
       window.dogs.forEach(dog => {
-        let contentString = `<h1  class="firstHeading">${dog.name}</h1>
-        <img src="/${dog.photo}">
+        let contentString = `<div class="infoWindow"><h2>${dog.name}</h2>
+        <img src="/${dog.photo}" height= 150px>
         <p>${dog.breed}</p>
         <p>${dog.age} Years</p>
-        <a href="/dog/dogProfile/${dog._id}">See profile</a>`;
+        <a href="/dog/dogProfile/${dog._id}">See profile</a></div>`;
 
         const infowindow = new google.maps.InfoWindow({
           content: contentString
