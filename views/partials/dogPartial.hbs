@@ -3,10 +3,7 @@
         <h3>{{name}}</h3>
         <img src="/{{photo}}" alt="dogPhoto">
         <p>{{breed}}</p>
-        <p>{{description}}</p>
-        {{#if user.isAdmin}}
-        <a href="/dog/delete/{{_id}}">Delete dog </a>
-        {{/if}}
+        <p>{{description}}</p>      
         <a href="/dog/edit/{{_id}}">Edit dog </a>
         <a href="/dog/dogProfile/{{_id}}">See profile </a>
     </div>

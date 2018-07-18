@@ -115,8 +115,7 @@ dogsRoutes.get("/dogProfile/:id", (req, res) => {
 //SCHEDULE ROUTE
 dogsRoutes.get("/schedule/:id", (req, res) => {
   Dog.findById(req.params.id).then(dog => {
-    console.log(dog)
-    res.render("dog/schedule", { dog : JSON.stringify(dog) });
+    res.render("dog/schedule", {templateDog:dog, dog : JSON.stringify(dog) });
   });
 });
 

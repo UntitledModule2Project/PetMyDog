@@ -8,7 +8,8 @@ body {
   background-image: url("../images/happy-dog-running-by-500px.jpg");
   background-attachment: fixed;
   background-size: cover;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  color: white; }
   body nav {
     margin: 0;
     padding: 2% 0;
