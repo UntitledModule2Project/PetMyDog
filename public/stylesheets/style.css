@@ -10,22 +10,21 @@ body {
   background-size: cover;
   background-repeat: no-repeat; }
   body nav {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
     margin: 0;
     padding: 2% 0;
     background-color: rgba(255, 255, 255, 0.3); }
   body ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     width: 100%;
     padding: 0;
-    margin: 0; }
-  body ul > li {
-    display: inline-flex;
-    list-style-type: none;
-    flex-basis: content auto;
-    width: 24%;
+    margin: 0;
     justify-content: space-evenly; }
+  body ul > li {
+    display: flex;
+    list-style-type: none;
+    flex-basis: content auto; }
   body a {
     color: #00B7FF;
     text-decoration: none; }
