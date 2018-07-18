@@ -6,7 +6,8 @@ const userSchema = new Schema({
   password: {type: String, required: true},
   email: String,
   hasDog: {type: Boolean, default: false},
-  isAdmin: { type: Boolean, default: false }
+  isAdmin: { type: Boolean, default: false },
+  isOwner: { type: Boolean, default: false }
 }, {
   timestamps: {
     createdAt: 'created_at',

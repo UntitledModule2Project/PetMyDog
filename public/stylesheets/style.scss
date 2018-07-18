@@ -116,7 +116,7 @@ h1 {
 
 .dog-container {
   max-width: 1500px;
-  margin: 1em auto;
+  margin: 0 auto;//waddup!
   padding-bottom: 70px;
   display: flex;
   flex-wrap: wrap;
@@ -139,4 +139,14 @@ h1 {
 }
 .infoWindow{
   color: black;
+}
+.schedule{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.options{
+  display: flex;
+  justify-content: space-around;
 }
