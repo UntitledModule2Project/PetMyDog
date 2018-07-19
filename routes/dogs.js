@@ -110,19 +110,24 @@ dogsRoutes.get("/delete/:id", (req, res) => {
 
 //DOG PROFILE
 dogsRoutes.get("/dogProfile/:id", (req, res) => {
-  const user = req.params.user_id;
-  const dog = req.params.dog_id;
+  console.log(req.user);
+  const user_id = req.user._id;
+  const dog_id = req.params.id;
   const title = req.body.title;
   const comment = req.body.comment;
 
-  Dog.findById(req.params.id).then(dog => {
-    Comment.find({ dog_id: req.params.id })
-      .populate("user_id", "owner")
+  Dog.findById(req.params.id)
+    .populate("owner")
+    .then(dog => {
+      console.log(dog)
+      Comment.find({ dog_id })
+      .populate("user_id")
       .then(comments => {
         let isOwner = JSON.stringify(dog.owner._id) === JSON.stringify(req.user.id);
-        res.render("dog/dogProfile", { user, dog, title, comments, isOwner });
+        res.render("dog/dogProfile", {dog, comments, isOwner });
       });
-  });
+  })
+  .catch(e=>console.log(e))
 });
 
 //USER COMMENTS
