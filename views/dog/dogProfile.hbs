@@ -5,33 +5,39 @@
             <div class="pictureContainer">
                 <img src="/{{dog.photo}}" alt="dogPhoto">
             </div>
-            <p>Breed: {{dog.breed}}</p>
-            <p>Age: {{dog.age}}</p>
-            <p>Owner: {{dog.owner.username}}</p>
-            <p>Description:
-                <br> {{dog.description}}</p>
-            <p>Comments:
-                <ul>
-                    {{#each comments}}
-                    <li>{{comment}} <br> -{{user_id.username}}</li>
-                    {{/each}}
-                </ul>
-            </p>
-            <br>
-            <br>
-            <div class="options">
-                {{#if user.isAdmin}}
-                <a href="/dog/delete/{{dog._id}}">Delete dog </a>
-                <a href="/dog/edit/{{dog._id}}">Edit dog </a>
-                {{/if}} {{#if isOwner}}
-                <a href="/dog/delete/{{dog._id}}">Delete dog </a>
-                <a href="/dog/edit/{{dog._id}}">Edit dog </a>
-                {{/if}}
-                <a href="/dog/schedule/{{dog._id}}">Pet this dog </a>
-            </div>
-             <br>
-            <br>
-            {{>commentFormPartial}}
+            <h4>Breed:</h4>
+            <p> {{dog.breed}}</p>
+            <h4>Age:
+                <h4>
+                    <p>{{dog.age}}</p>
+                    <h4>Owner:</h4>
+                    <p>{{dog.owner.username}}</p>
+                    <h4>Description:</h4>
+                    <p>{{dog.description}}</p>
+                    <p>Comments:
+                        <ul class="comment">
+                            {{#each comments}}
+                            <li>{{comment}}
+                                <br> -{{user_id.username}}
+                            </li>
+                            <a href="/dog/deletec/{{this._id}}">Delete</a>
+                            {{/each}}
+                        </ul>
+                    </p>
+                    <br>
+                    <br>
+                    <div class="options">
+                        {{#if user.isAdmin}}
+                        <a href="/dog/delete/{{dog._id}}">Delete dog </a>
+                        <a href="/dog/edit/{{dog._id}}">Edit dog </a>
+                        {{/if}} {{#if isOwner}}
+                        <a href="/dog/delete/{{dog._id}}">Delete dog </a>
+                        <a href="/dog/edit/{{dog._id}}">Edit dog </a>
+                        {{/if}}
+                        <a href="/dog/schedule/{{dog._id}}">Pet this dog </a>
+                    </div>
+                    <br>
+                    <br> {{>commentFormPartial}}
         </div>
     </div>
 </div>

@@ -21,6 +21,8 @@ nav {
   position: fixed;
   width: 100%;
   height: 80px;
+  display: flex;
+  align-items: center;
 }
 footer {
   display: flex;
@@ -161,7 +163,7 @@ textarea{
   justify-content: space-around;
 }
 .profile{
-  height:1700px;
+  height:2000px;
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -178,4 +180,8 @@ textarea{
 #profile{
   justify-content: center;
   align-items: center;
+}
+.comment{
+  width:630px;
+  list-style: none;
 }

@@ -162,6 +162,19 @@ dogsRoutes.post("/dogProfile/:id/comment/new", (req, res, next) => {
       req.flash("error", err.message);
     });
 });
+//DELETE COMMENT
+dogsRoutes.get("/deletec/:id", (req, res) => {
+  console.log(req.params.id,'<-------------');
+  Comment.findByIdAndRemove({_id:req.params.id})
+    .then((comment) => {
+      console.log(comment,'<-------')
+      res.redirect("/dog/dogProfile/" + comment.dog_id);
+    })
+    .catch(err => {
+      req.flash("error", err.message);
+      res.redirect("/dog/list");
+    });
+});
 
 //SCHEDULE ROUTE
 dogsRoutes.get("/schedule/:id", (req, res) => {
