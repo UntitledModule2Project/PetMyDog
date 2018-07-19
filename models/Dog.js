@@ -6,7 +6,7 @@ const dogSchema = new Schema(
     name: { type: String, required: true },
     age: Number,
     photo: String,
-    owner: { type: String, required: true },
+    owner: { type: Schema.Types.ObjectId, ref: 'User' },
     breed: { type: String, required: true },
     size: { type: { enum: ["Toy", "Small", "Medium", "Large"] } },
     description: String,

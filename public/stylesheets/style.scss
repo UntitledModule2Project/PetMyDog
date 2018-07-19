@@ -1,96 +1,159 @@
-@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great|Poppins:400,700');
-body {
-    padding: 0;
-    margin: 0;
-    font: 1.6em "Poppins", Verdana, serif;
-    max-height: 100%;
-    width: auto;
-    background-image: url("../images/happy-dog-running-by-500px.jpg");
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
+@import url("https://fonts.googleapis.com/css?family=Fredericka+the+Great|Overlock:400,700");
 
-    nav {
-        margin: 0;
-        padding: 2% 0;
-        background-color: rgba(255, 255, 255, 0.3);
-    }
-    ul {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        justify-content: space-evenly;
-        text-transform: uppercase;
-    }
-    ul>li {
-        display: flex;
-        list-style-type: none;
-        flex-basis: content auto;
-    }
-    a {
-        color: #00B7FF;
-        text-decoration: none;  
-    }
-    h1 {
-        display: flex;
-        justify-content: flex-start;
-        align-content: flex-start;
-        font-family: "Fredericka The Great", sans-serif;
-        font-size: 3em;
-        
-    }
-    #form {
-        margin: 30px auto;
-        width: 380px;
-    }
-    #form label {
-        color: #666;
-        display: inline-block;
-        margin-bottom: 10px;
-        text-align: center;
-        width: 100%;
-    }
-    #form input,
-    #form button {
-        box-sizing: border-box;
-        font-size: 14px;
-        outline: 0;
-        padding: 4px;
-        width: 100%;
-    }
-    #form button {
-        background: #43a3e6;
-        border: 1px solid #43a3e6;
-        border-radius: 4px;
-        color: #fff;
-        cursor: pointer;
-        display: inline-block;
-        font-size: 14px;
-        padding: 8px 16px;
-        text-decoration: none;
-        text-transform: uppercase;
-        transition: .3s ease background;
-        width: 100%;
-    }
-    #form button:hover {
-        background: #fff;
-        color: #43a3e6;
-        transition: .3s ease background;
-    }
-    .title{
-      margin: 0 60% 0 30%;
-    }
-    
-    footer {
-        left: 0;
-        bottom: 0;
-        text-align: center;
-        font-family: "Fredericka The Great", Verdana, serif;
-        width: 100%;
-        padding: 2% 0;
-        background-color: rgba(255, 255, 255, 0.3);
-    }
+body {
+  padding: 0;
+  margin: 0;
+  font: 1.6em "Overlock", Verdana, serif;
+  max-height: 100%;
+  width: auto;
+  background-image: url("../images/happy-dog-running-by-500px.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+}
+main {
+  min-height: calc(100vh - 150px);
+  padding: 90px 50px 0 50px;
+}
+nav {
+  background-color: rgba(255, 255, 255, 0.3);
+  position: fixed;
+  width: 100%;
+  height: 80px;
+}
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.3);
+  font-family: "Fredericka The Great", Verdana, serif;
+  width: 100%;
+  height: 60px;
+}
+ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  justify-content: space-evenly;
+  align-content: space-around;
+}
+ul > li {
+  display: flex;
+  list-style-type: none;
+}
+a {
+  color: #00b7ff;
+  text-decoration: none;
+  font-weight: 900;
+}
+h1 {
+  display: flex;
+  justify-content: flex-start;
+  align-content: flex-start;
+  font-family: "Fredericka The Great", sans-serif;
+  font-size: 3em;
+}
+select{
+  height:27px;
+  background: #fff;
+}
+textarea{
+  width:700px;
+}
+#form {
+  margin: 30px auto;
+  width: 700px;
+  font-size: 1.3em;
+  font-weight: 900;
+}
+#form label , #form p {
+  color:white; 
+  display: inline-block;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 100%;
+}
+#form select {
+  display: inline-block;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 100%;
+
+}
+#form input,
+#form button {
+  box-sizing: border-box;
+  font-size: 14px;
+  outline: 0;
+  padding: 4px;
+  width: 100%;
+}
+#form button {
+  background: #43a3e6;
+  border: 1px solid #43a3e6;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  padding: 8px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.3s ease background;
+  width: 100%;
+}
+#form button:hover {
+  background: #fff;
+  color: #43a3e6;
+  transition: 0.3s ease background;
+}
+.title {
+  width: 980px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+.dog-container img {
+  width: auto;
+  height: 100%;
+}
+
+.dog-container {
+  max-width: 1500px;
+  padding-bottom: 70px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.dog-container article {
+  margin: 50px 0;
+  width: 30%;
+  height: 450px
+}
+
+.dog-container article > div {
+  height: 250px;
+  margin-bottom: 20px;
+}
+
+.dog-container article img {
+  display: block;
+  margin: auto;
+}
+.infoWindow{
+  color: black;
+}
+.schedule{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.options{
+  display: flex;
+  justify-content: space-around;
 }

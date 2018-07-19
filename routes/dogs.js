@@ -5,6 +5,7 @@ const Dog = require("../models/Dog");
 const multer = require("multer");
 const upload = multer({ dest: "uploads/" });
 const Comment = require("../models/Comment");
+const isAdmin = require("../midlewares/isAdmin");
 
 //SIGN DOG UP
 dogsRoutes.get("/new", (req, res, next) => {
@@ -15,7 +16,7 @@ dogsRoutes.post("/new", upload.single("photo"), (req, res, next) => {
   const name = req.body.name;
   const age = req.body.age;
   const photo = req.file.path;
-  const owner = req.body.owner;
+  const owner = req.user.id;
   const breed = req.body.breed;
   const size = req.body.size;
   const description = req.body.description;
@@ -58,6 +59,7 @@ dogsRoutes.post("/new", upload.single("photo"), (req, res, next) => {
   });
 });
 
+//LIST
 dogsRoutes.get("/list", (req, res, next) => {
   Dog.find().then(dogs => {
     res.render("dog/list", { dogs });
@@ -112,13 +114,15 @@ dogsRoutes.get("/dogProfile/:id", (req, res) => {
   const dog = req.params.dog_id;
   const title = req.body.title;
   const comment = req.body.comment;
+
   Dog.findById(req.params.id).then(dog => {
-    Comment.find({dog_id:req.params.id})
-    .populate('user_id')
-    .then(comments=>{
-      res.render("dog/dogProfile", { user, dog, title, comments })
-    })
-});
+    Comment.find({ dog_id: req.params.id })
+      .populate("user_id", "owner")
+      .then(comments => {
+        let isOwner = JSON.stringify(dog.owner._id) === JSON.stringify(req.user.id);
+        res.render("dog/dogProfile", { user, dog, title, comments, isOwner });
+      });
+  });
 });
 
 //USER COMMENTS
@@ -144,11 +148,9 @@ dogsRoutes.post("/dogProfile/:id/comment/new", (req, res, next) => {
     title,
     comment
   });
-  console.log(newComment);
   newComment
     .save()
-    .then((comment) => {
-      console.log(comment)
+    .then(comment => {
       res.redirect("/dog/dogProfile/" + dog_id);
     })
     .catch(err => {
@@ -156,7 +158,11 @@ dogsRoutes.post("/dogProfile/:id/comment/new", (req, res, next) => {
     });
 });
 
-
+//SCHEDULE ROUTE
+dogsRoutes.get("/schedule/:id", (req, res) => {
+  Dog.findById(req.params.id).then(dog => {
+    res.render("dog/schedule", { templateDog: dog, dog: JSON.stringify(dog) });
+  });
+});
 
 module.exports = dogsRoutes;
-

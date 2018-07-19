@@ -78,7 +78,6 @@ app.use(
 );
 app.use(flash());
 require("./passport")(app);
-// default value for title local
 app.use((req, res, next) => {
   app.locals.title = "Pet My Dog!";
   res.locals.user = req.user;
