@@ -1,8 +1,10 @@
-<div class="dog-container">
-    <article>
+<div class="profile">
+    <div class="dog-container" id="profile">
         <div>
             <h3>{{dog.name}}</h3>
-            <img src="/{{dog.photo}}" alt="dogPhoto">
+            <div class="pictureContainer">
+                <img src="/{{dog.photo}}" alt="dogPhoto">
+            </div>
             <p>Breed: {{dog.breed}}</p>
             <p>Age: {{dog.age}}</p>
             <p>Owner: {{dog.owner.username}}</p>
@@ -15,7 +17,8 @@
                     {{/each}}
                 </ul>
             </p>
-            {{>commentFormPartial}}
+            <br>
+            <br>
             <div class="options">
                 {{#if user.isAdmin}}
                 <a href="/dog/delete/{{dog._id}}">Delete dog </a>
@@ -26,10 +29,9 @@
                 {{/if}}
                 <a href="/dog/schedule/{{dog._id}}">Pet this dog </a>
             </div>
-            {{#if user}}
-            <a href="/dogProfile/{{_id}}/comment/new/">Add comment</a>
-            <a href="/main/schedule/{{_id}}">Pet this dog</a>
-            {{/if}}
+             <br>
+            <br>
+            {{>commentFormPartial}}
         </div>
-    </article>
+    </div>
 </div>

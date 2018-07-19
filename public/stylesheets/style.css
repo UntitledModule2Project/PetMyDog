@@ -16,7 +16,7 @@ main {
   padding: 90px 50px 0 50px; }
 
 nav {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(29, 27, 27, 0.9);
   position: fixed;
   width: 100%;
   height: 80px; }
@@ -25,7 +25,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(17, 17, 17, 0.9);
   font-family: "Fredericka The Great", Verdana, serif;
   width: 100%;
   height: 60px; }
@@ -118,11 +118,12 @@ textarea {
   height: 100%; }
 
 .dog-container {
-  max-width: 1500px;
+  max-width: 100%;
   padding-bottom: 70px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; }
+  justify-content: space-between;
+  background-color: rgba(15, 18, 19, 0.3); }
 
 .dog-container article {
   margin: 50px 0;
@@ -135,7 +136,8 @@ textarea {
 
 .dog-container article img {
   display: block;
-  margin: auto; }
+  margin: auto;
+  border-radius: 10px; }
 
 .infoWindow {
   color: black; }
@@ -149,5 +151,24 @@ textarea {
 .options {
   display: flex;
   justify-content: space-around; }
+
+.profile {
+  height: 1700px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 980px;
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: rgba(15, 18, 19, 0.3);
+  text-align: center; }
+
+.profile img {
+  max-width: 100%;
+  border-radius: 10px; }
+
+#profile {
+  justify-content: center;
+  align-items: center; }
 
 /*# sourceMappingURL=style.css.map */

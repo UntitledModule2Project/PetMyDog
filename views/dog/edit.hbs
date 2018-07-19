@@ -54,10 +54,6 @@
     </select>
     <br>
     <br>
-    <label for="owner">Owner</label>
-    <input id="owner" type="text" name="owner" value="{{dog.owner}}">
-    <br>
-    <br>
     <label for="size">Your dog's size</label>
     <select name="size" id="size" value="{{dog.size}}">
         <option value="toy ">Toy</option>
@@ -84,8 +80,6 @@
     <br> {{#if message }}
     <div class="error-message">{{ message }}</div>
     {{/if}}
-    <br>
-    <br>
     <button>Save changes</button>
     <p class="account-message">
         <a href="/">Home</a>
