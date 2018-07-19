@@ -68,7 +68,7 @@ document.addEventListener(
 
     if (document.getElementById("map2")) {
       const map2 = new google.maps.Map(document.getElementById("map2"), {
-        zoom: 15
+        zoom: 14
       });
       geolocate().then(position => {
         const myMarker = new google.maps.Marker({

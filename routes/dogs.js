@@ -107,8 +107,11 @@ dogsRoutes.get("/delete/:id", (req, res) => {
 
 //DOG PROFILE
 dogsRoutes.get("/dogProfile/:id", (req, res) => {
-  Dog.findById(req.params.id).then(dog => {
-    res.render("dog/dogProfile", { dog });
+  Dog.findById(req.params.id)
+  .populate("owner")
+  .then(dog => {
+    let isOwner = JSON.stringify(dog.owner._id) === JSON.stringify(req.user.id);
+    res.render("dog/dogProfile", { dog , isOwner });
   });
 });
 

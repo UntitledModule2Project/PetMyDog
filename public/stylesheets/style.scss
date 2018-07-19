@@ -55,13 +55,20 @@ h1 {
   font-family: "Fredericka The Great", sans-serif;
   font-size: 3em;
 }
+select{
+  height:27px;
+  background: #fff;
+}
+textarea{
+  width:700px;
+}
 #form {
   margin: 30px auto;
-  width: 380px;
+  width: 700px;
   font-size: 1.3em;
   font-weight: 900;
 }
-#form label {
+#form label , p {
   color:white; 
   display: inline-block;
   margin-bottom: 10px;
@@ -116,7 +123,6 @@ h1 {
 
 .dog-container {
   max-width: 1500px;
-  margin: 0 auto;//waddup!
   padding-bottom: 70px;
   display: flex;
   flex-wrap: wrap;
@@ -124,8 +130,9 @@ h1 {
 }
 
 .dog-container article {
-  margin: 30px 0;
+  margin: 50px 0;
   width: 30%;
+  height: 450px
 }
 
 .dog-container article > div {
