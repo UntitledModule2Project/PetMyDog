@@ -31,6 +31,8 @@ document.addEventListener(
         center: ironhackMDRZ
       });
 
+      const bounds = new google.maps.LatLngBounds();
+
       window.dogs.forEach(dog => {
         let contentString = `<div class="infoWindow"><h2>${dog.name}</h2>
         <img src="/${dog.photo}" height= 150px>
@@ -52,7 +54,9 @@ document.addEventListener(
         marker.addListener("click", function() {
           infowindow.open(map, marker);
         });
+        bounds.extend(marker.position);
       });
+      map.fitBounds(bounds);
 
       geolocate().then(position => {
         const myMarker = new google.maps.Marker({
@@ -118,11 +122,11 @@ document.addEventListener(
       const map3 = new google.maps.Map(document.getElementById("map3"), {
         zoom: 15
       });
-      const dog = window.dog
+      const dog = window.dog;
       const position = {
         lat: dog.location.coordinates[0],
         lng: dog.location.coordinates[1]
-      }
+      };
       const dogMarker = new google.maps.Marker({
         position: position,
         map: map3,
