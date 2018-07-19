@@ -6,10 +6,25 @@
             <p>Breed: {{dog.breed}}</p>
             <p>Age: {{dog.age}}</p>
             <p>Owner: {{dog.owner}}</p>
-            <p>Description: <br> {{dog.description}}</p>
+            <p>Description:
+                <br> {{dog.description}}</p>
+            <p>Comments:
+                <ul>
+                    {{#each comments}}
+                    <li>{{comment}} - {{user_id.username}}</li>
+                    {{/each}}
+                </ul>
+            </p>
+            {{>commentFormPartial}}
+            {{#if dog}}
             <a href="/dog/delete/{{_id}}">Delete dog </a>
             <a href="/dog/edit/{{_id}}">Edit dog </a>
-            <a href="/main/schedule/{{_id}}">Pet this dog </a>
+            {{/if}}
+            {{#if user}}
+
+            <a href="/dogProfile/{{_id}}/comment/new/">Add comment</a>
+            <a href="/main/schedule/{{_id}}">Pet this dog</a>
+            {{/if}}
         </div>
     </article>
 </div>

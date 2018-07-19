@@ -1,0 +1,22 @@
+<h3>
+    Leave {{this.dog.name}} a message!
+</h3>
+<br>
+<br>
+
+<form action="/dog/dogProfile/{{dog.id}}/comment/new" method="POST" id="form">
+    <label for="title">Title</label>
+    <textarea name="title" id="title" cols="46" rows="1"></textarea>
+    <label for="comment">Comment</label>
+    <textarea name="comment" id="comment" cols="46" rows="5"></textarea>
+    <br>
+    <br> {{#if message }}
+    <div class="error-message">{{ message }}</div>
+    {{/if}}
+    <br>
+    <br>
+    <button>Send</button>
+    <p class="account-message">
+        <a href="/">Home</a>
+    </p>
+</form>

@@ -3,10 +3,13 @@ const passport = require("passport");
 const authRoutes = express.Router();
 const User = require("../models/User");
 const Dog = require("../models/Dog");
+const Comment = require("../models/Comment");
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
+
+//USER LOGIN
 
 authRoutes.get("/login", (req, res, next) => {
   res.render("auth/login", { message: req.flash("error") });
@@ -22,6 +25,8 @@ authRoutes.post(
     passReqToCallback: true
   })
 );
+
+//USER SIGNUP
 
 authRoutes.get("/signup", (req, res, next) => {
   res.render("auth/signup");
@@ -63,6 +68,8 @@ authRoutes.post("/signup", (req, res, next) => {
   });
 });
 
+//LOGOUT
+
 authRoutes.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
@@ -70,7 +77,7 @@ authRoutes.get("/logout", (req, res) => {
 
 authRoutes.get("/main", (req, res, next) => {
   Dog.find().then(dogs => {
-    res.render("main/main", {dogs: JSON.stringify(dogs)});
+    res.render("main/main", { dogs: JSON.stringify(dogs) });
   });
 });
 

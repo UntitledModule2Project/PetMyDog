@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css?family=Fredericka+the+Great|Overlock:400,700");
+@import url("https://fonts.googleapis.com/css?family=Fredericka+the+Great|Poppins:400,700");
 body {
   padding: 0;
   margin: 0;
-  font: 1.6em "Overlock", Verdana, serif;
+  font: 1.6em "Poppins", Verdana, serif;
   max-height: 100%;
   width: auto;
   background-image: url("../images/happy-dog-running-by-500px.jpg");
@@ -20,7 +20,8 @@ body {
     width: 100%;
     padding: 0;
     margin: 0;
-    justify-content: space-evenly; }
+    justify-content: space-evenly;
+    text-transform: uppercase; }
   body ul > li {
     display: flex;
     list-style-type: none;

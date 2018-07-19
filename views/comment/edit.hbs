@@ -1,0 +1,18 @@
+<div class="comment-container">
+    <h2>{{this.username}}, Edit your comment below!</h2>
+    <form action="/dogs/comment:id/edit" method="POST" id="form2">
+    <label for="title">Title</label>
+    <textarea name="title" id="title" cols="46" rows="1">{{this.title}}</textarea>
+    <label for="comment">Comment</label>
+    <textarea name="comment" id="comment" cols="46" rows="5">{{this.comment}}</textarea>
+    <br>
+    <br> {{#if message }}
+    <div class="error-message">{{ message }}</div>
+    {{/if}}
+    <br>
+    <br>
+    <button>Send</button>
+    <p class="account-message">
+        <a href="/">Home</a>
+    </p>
+</div>
