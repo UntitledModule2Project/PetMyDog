@@ -164,7 +164,7 @@ textarea {
   width: 980px;
   max-width: 100%;
   margin: 0 auto;
-  background-color: rgba(15, 18, 19, 0.3);
+  /* background-color: rgba(15, 18, 19, 0.3); */
   text-align: center; }
 
 .profile img {
