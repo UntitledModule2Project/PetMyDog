@@ -13,8 +13,9 @@ body {
   color: white;
 }
 main {
-  min-height: calc(100vh - 150px);
+  min-height: calc(100vh - 60px);
   padding: 90px 50px 0 50px;
+  box-sizing: border-box;
 }
 nav {
   background-color: rgba(29, 27, 27, 0.9);
@@ -66,7 +67,7 @@ textarea{
   width:700px;
 }
 #form {
-  margin: 30px auto;
+  margin: 30px auto 0;
   width: 700px;
   font-size: 1.3em;
   font-weight: 900;
