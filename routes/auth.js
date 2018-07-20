@@ -4,6 +4,7 @@ const authRoutes = express.Router();
 const User = require("../models/User");
 const Dog = require("../models/Dog");
 const Comment = require("../models/Comment");
+const ensureLoggedIn = require('../middleware/ensureLoggedIn');
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
@@ -28,11 +29,11 @@ authRoutes.post(
 
 //USER SIGNUP
 
-authRoutes.get("/signup", (req, res, next) => {
+authRoutes.get("/signup",ensureLoggedIn('/auth/login'), (req, res, next) => {
   res.render("auth/signup");
 });
 
-authRoutes.post("/signup", (req, res, next) => {
+authRoutes.post("/signup",ensureLoggedIn('/auth/login'), (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
   const email = req.body.email;
@@ -70,12 +71,12 @@ authRoutes.post("/signup", (req, res, next) => {
 
 //LOGOUT
 
-authRoutes.get("/logout", (req, res) => {
+authRoutes.get("/logout",ensureLoggedIn('/auth/login'), (req, res) => {
   req.logout();
   res.redirect("/");
 });
 
-authRoutes.get("/main", (req, res, next) => {
+authRoutes.get("/main",ensureLoggedIn('/auth/login'), (req, res, next) => {
   Dog.find().then(dogs => {
     res.render("main/main", { dogs: JSON.stringify(dogs) });
   });

@@ -5,14 +5,14 @@ const Dog = require("../models/Dog");
 const multer = require("multer");
 const upload = multer({ dest: "uploads/" });
 const Comment = require("../models/Comment");
-const isAdmin = require("../midlewares/isAdmin");
+const ensureLoggedIn = require('../middleware/ensureLoggedIn');
 
 //SIGN DOG UP
-dogsRoutes.get("/new", (req, res, next) => {
+dogsRoutes.get("/new",ensureLoggedIn('/auth/login'), (req, res, next) => {
   res.render("dog/new", { message: req.flash("error") });
 });
 
-dogsRoutes.post("/new", upload.single("photo"), (req, res, next) => {
+dogsRoutes.post("/new", upload.single("photo"),ensureLoggedIn('/auth/login'), (req, res, next) => {
   const name = req.body.name;
   const age = req.body.age;
   const photo = req.file.path;
@@ -60,20 +60,20 @@ dogsRoutes.post("/new", upload.single("photo"), (req, res, next) => {
 });
 
 //LIST
-dogsRoutes.get("/list", (req, res, next) => {
+dogsRoutes.get("/list", ensureLoggedIn('/auth/login'),(req, res, next) => {
   Dog.find().then(dogs => {
     res.render("dog/list", { dogs });
   });
 });
 
 //EDIT DOG
-dogsRoutes.get("/edit/:id", (req, res) => {
+dogsRoutes.get("/edit/:id", ensureLoggedIn('/auth/login'),(req, res) => {
   Dog.findById(req.params.id).then(dog => {
     res.render("dog/edit", { dog });
   });
 });
 
-dogsRoutes.post("/edit/:id", upload.single("photo"), (req, res) => {
+dogsRoutes.post("/edit/:id", upload.single("photo"), ensureLoggedIn('/auth/login'),(req, res) => {
   const { name, age, owner, breed, size, description } = req.body;
   const location = { type: "Point", coordinates: [req.body.lat, req.body.lng] };
   const photo = req.file.path;
@@ -97,7 +97,7 @@ dogsRoutes.post("/edit/:id", upload.single("photo"), (req, res) => {
 });
 
 //DELETE DOG
-dogsRoutes.get("/delete/:id", (req, res) => {
+dogsRoutes.get("/delete/:id",ensureLoggedIn('/auth/login'), (req, res) => {
   Dog.findByIdAndRemove(req.params.id)
     .then(() => {
       res.redirect("/dog/list");
@@ -109,7 +109,7 @@ dogsRoutes.get("/delete/:id", (req, res) => {
 });
 
 //DOG PROFILE
-dogsRoutes.get("/dogProfile/:id", (req, res) => {
+dogsRoutes.get("/dogProfile/:id",ensureLoggedIn('/auth/login'), (req, res) => {
   console.log(req.user);
   const user_id = req.user._id;
   const dog_id = req.params.id;
@@ -134,7 +134,7 @@ dogsRoutes.get("/dogProfile/:id", (req, res) => {
 
 //CREATE NEW COMMENTS
 
-dogsRoutes.post("/dogProfile/:id/comment/new", (req, res, next) => {
+dogsRoutes.post("/dogProfile/:id/comment/new",ensureLoggedIn('/auth/login'), (req, res, next) => {
   console.log(req.body.title, req.body.comment, req.params.id, req.user);
   const user_id = req.user._id;
   const dog_id = req.params.id;
@@ -163,7 +163,7 @@ dogsRoutes.post("/dogProfile/:id/comment/new", (req, res, next) => {
     });
 });
 //DELETE COMMENT
-dogsRoutes.get("/deletec/:id", (req, res) => {
+dogsRoutes.get("/deletec/:id",ensureLoggedIn('/auth/login'), (req, res) => {
   console.log(req.params.id,'<-------------');
   Comment.findByIdAndRemove({_id:req.params.id})
     .then((comment) => {
@@ -177,7 +177,7 @@ dogsRoutes.get("/deletec/:id", (req, res) => {
 });
 
 //SCHEDULE ROUTE
-dogsRoutes.get("/schedule/:id", (req, res) => {
+dogsRoutes.get("/schedule/:id", ensureLoggedIn('/auth/login'),(req, res) => {
   Dog.findById(req.params.id).then(dog => {
     res.render("dog/schedule", { templateDog: dog, dog: JSON.stringify(dog) });
   });
