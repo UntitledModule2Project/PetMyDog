@@ -1,0 +1,66 @@
+body {
+  padding: 0;
+  margin: 0;
+  font: 1.6em "Overlock", Verdana, serif;
+  max-height: 100%;
+  width: auto;
+  background-image: url("../images/happy-dog-running-by-500px.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+}
+main {
+  min-height: calc(100vh - 60px);
+  padding: 90px 50px 0 50px;
+  box-sizing: border-box;
+}
+nav {
+  background-color: rgba(29, 27, 27, 0.9);
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(17, 17, 17, 0.9);
+  font-family: "Fredericka The Great", Verdana, serif;
+  width: 100%;
+  height: 60px;
+}
+ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  justify-content: space-evenly;
+  align-content: space-around;
+  padding: 0;
+  margin: 0 auto;
+}
+ul > li {
+  list-style-type: none;
+}
+a {
+  color: #00b7ff;
+  text-decoration: none;
+  font-weight: 900;
+}
+h1 {
+  display: flex;
+  justify-content: flex-start;
+  align-content: flex-start;
+  font-family: "Fredericka The Great", sans-serif;
+  font-size: 3em;
+}
+select {
+  height: 27px;
+  background: #fff;
+}
+textarea {
+  width: 700px;
+}
